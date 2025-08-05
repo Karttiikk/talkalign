@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { Button } from './button';
 import { Badge } from './badge';
-import { UserCircle, Stethoscope, Heart } from 'lucide-react';
+import { UserCircle, Stethoscope, Heart, LogOut } from 'lucide-react';
 
 interface NavigationProps {
   currentRole: 'slp' | 'caregiver';
   onRoleChange: (role: 'slp' | 'caregiver') => void;
+  onLogout?: () => void;
+  isAuthenticated?: boolean;
 }
 
-export function Navigation({ currentRole, onRoleChange }: NavigationProps) {
+export function Navigation({ currentRole, onRoleChange, onLogout, isAuthenticated = true }: NavigationProps) {
   return (
     <header className="bg-card shadow-soft border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,34 +27,48 @@ export function Navigation({ currentRole, onRoleChange }: NavigationProps) {
             </div>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2 bg-muted p-1 rounded-lg">
-              <Button
-                variant={currentRole === 'slp' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => onRoleChange('slp')}
-                className="flex items-center space-x-2"
-              >
-                <Stethoscope className="h-4 w-4" />
-                <span>SLP</span>
-              </Button>
-              <Button
-                variant={currentRole === 'caregiver' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => onRoleChange('caregiver')}
-                className="flex items-center space-x-2"
-              >
-                <UserCircle className="h-4 w-4" />
-                <span>Caregiver</span>
-              </Button>
+          {isAuthenticated && (
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 bg-muted p-1 rounded-lg">
+                <Button
+                  variant={currentRole === 'slp' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => onRoleChange('slp')}
+                  className="flex items-center space-x-2"
+                >
+                  <Stethoscope className="h-4 w-4" />
+                  <span>SLP</span>
+                </Button>
+                <Button
+                  variant={currentRole === 'caregiver' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => onRoleChange('caregiver')}
+                  className="flex items-center space-x-2"
+                >
+                  <UserCircle className="h-4 w-4" />
+                  <span>Caregiver</span>
+                </Button>
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <Badge variant="secondary" className="bg-success-light text-success">
+                  {currentRole === 'slp' ? 'Dr. Sarah Wilson' : 'Parent Portal'}
+                </Badge>
+                
+                {onLogout && (
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={onLogout}
+                    className="flex items-center space-x-2"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    <span>Logout</span>
+                  </Button>
+                )}
+              </div>
             </div>
-            
-            <div className="flex items-center space-x-2">
-              <Badge variant="secondary" className="bg-success-light text-success">
-                {currentRole === 'slp' ? 'Dr. Sarah Wilson' : 'Parent Portal'}
-              </Badge>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </header>
