@@ -29,30 +29,19 @@ export function Navigation({ currentRole, onRoleChange, onLogout, isAuthenticate
           
           {isAuthenticated && (
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 bg-muted p-1 rounded-lg">
-                <Button
-                  variant={currentRole === 'slp' ? 'default' : 'ghost'}
-                  size="sm"
-                  onClick={() => onRoleChange('slp')}
-                  className="flex items-center space-x-2"
-                >
-                  <Stethoscope className="h-4 w-4" />
-                  <span>SLP</span>
-                </Button>
-                <Button
-                  variant={currentRole === 'caregiver' ? 'default' : 'ghost'}
-                  size="sm"
-                  onClick={() => onRoleChange('caregiver')}
-                  className="flex items-center space-x-2"
-                >
-                  <UserCircle className="h-4 w-4" />
-                  <span>Caregiver</span>
-                </Button>
-              </div>
-              
               <div className="flex items-center space-x-2">
-                <Badge variant="secondary" className="bg-success-light text-success">
-                  {currentRole === 'slp' ? 'Dr. Sarah Wilson' : 'Parent Portal'}
+                <Badge variant="secondary" className="bg-success-light text-success flex items-center space-x-2">
+                  {currentRole === 'slp' ? (
+                    <>
+                      <Stethoscope className="h-4 w-4" />
+                      <span>Dr. Sarah Wilson</span>
+                    </>
+                  ) : (
+                    <>
+                      <UserCircle className="h-4 w-4" />
+                      <span>Parent Portal</span>
+                    </>
+                  )}
                 </Badge>
                 
                 {onLogout && (
