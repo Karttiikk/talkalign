@@ -96,19 +96,20 @@ export function LandingPage({ onGetStarted }) {
               </div>
             </div>
             
-            <Button onClick={onGetStarted} className="bg-gradient-to-r from-primary to-secondary">
+            <Button onClick={onGetStarted} variant="gradient" className="animate-pulse-glow">
               Get Started
-              <ArrowRight className="h-4 w-4 ml-2" />
+              <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-light via-accent-light to-secondary-light py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-primary-glow text-primary" variant="secondary">
+      <section className="bg-gradient-to-br from-primary-light via-accent-light to-secondary-light py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="max-w-4xl mx-auto animate-fade-in-up">
+            <Badge className="mb-6 bg-primary-glow text-primary animate-bounce-subtle" variant="secondary">
               ✨ Revolutionizing Speech Therapy
             </Badge>
             
@@ -128,37 +129,38 @@ export function LandingPage({ onGetStarted }) {
               <Button 
                 onClick={onGetStarted} 
                 size="lg"
-                className="bg-gradient-to-r from-primary to-secondary text-lg px-8 py-6 h-auto"
+                variant="premium"
+                className="text-lg px-8 py-6 h-auto group"
               >
                 Start Free Demo
-                <Play className="h-5 w-5 ml-2" />
+                <Play className="h-5 w-5 ml-2 transition-transform group-hover:scale-110" />
               </Button>
               
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 h-auto">
-                <Stethoscope className="h-5 w-5 mr-2" />
+              <Button variant="glass" size="lg" className="text-lg px-8 py-6 h-auto group">
+                <Stethoscope className="h-5 w-5 mr-2 transition-transform group-hover:rotate-12" />
                 For Professionals
               </Button>
             </div>
             
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-4">
+              <div className="flex flex-col items-center animate-fade-in" style={{animationDelay: '0.2s'}}>
+                <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-4 hover:scale-110 transition-transform duration-300 hover:shadow-glow animate-float">
                   <Stethoscope className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">For SLPs</h3>
                 <p className="text-muted-foreground">Professional tools for therapy management</p>
               </div>
               
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 bg-secondary-light rounded-full flex items-center justify-center mb-4">
+              <div className="flex flex-col items-center animate-fade-in" style={{animationDelay: '0.4s'}}>
+                <div className="w-16 h-16 bg-secondary-light rounded-full flex items-center justify-center mb-4 hover:scale-110 transition-transform duration-300 hover:shadow-glow animate-float" style={{animationDelay: '1s'}}>
                   <Heart className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">For Families</h3>
                 <p className="text-muted-foreground">Stay connected with your child's progress</p>
               </div>
               
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 bg-accent-light rounded-full flex items-center justify-center mb-4">
+              <div className="flex flex-col items-center animate-fade-in" style={{animationDelay: '0.6s'}}>
+                <div className="w-16 h-16 bg-accent-light rounded-full flex items-center justify-center mb-4 hover:scale-110 transition-transform duration-300 hover:shadow-glow animate-float" style={{animationDelay: '2s'}}>
                   <TrendingUp className="h-8 w-8 text-accent" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">AI-Powered</h3>
@@ -184,13 +186,17 @@ export function LandingPage({ onGetStarted }) {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="border border-border hover:shadow-soft transition-all duration-300 hover:-translate-y-1">
+              <Card 
+                key={index} 
+                className="border border-border hover:shadow-elegant transition-all duration-500 hover:-translate-y-2 hover:scale-105 group animate-fade-in-up cursor-pointer"
+                style={{animationDelay: `${index * 0.1}s`}}
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br from-primary-light to-secondary-light flex items-center justify-center`}>
-                      <feature.icon className={`h-6 w-6 ${feature.color}`} />
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br from-primary-light to-secondary-light flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-glow`}>
+                      <feature.icon className={`h-6 w-6 ${feature.color} group-hover:scale-110 transition-transform duration-300`} />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </CardContent>
@@ -290,11 +296,11 @@ export function LandingPage({ onGetStarted }) {
             <Button 
               onClick={onGetStarted}
               size="lg" 
-              variant="secondary"
-              className="text-lg px-8 py-6 h-auto bg-white text-primary hover:bg-white/90"
+              variant="glass"
+              className="text-lg px-8 py-6 h-auto bg-white text-primary hover:bg-white/90 group"
             >
               Try Demo Now
-              <ArrowRight className="h-5 w-5 ml-2" />
+              <ArrowRight className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
           

@@ -67,8 +67,9 @@ export function LoginPage({ onLogin, onBack }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-light via-accent-light to-secondary-light flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-primary-light via-accent-light to-secondary-light flex items-center justify-center p-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+      <div className="w-full max-w-md relative animate-scale-in">
         {/* Header */}
         <div className="text-center mb-8">
           <Button 
@@ -95,7 +96,7 @@ export function LoginPage({ onLogin, onBack }) {
         </div>
 
         {/* Login Form */}
-        <Card className="border border-border shadow-soft">
+        <Card className="border border-border shadow-elegant backdrop-blur-sm bg-card/95 hover:shadow-glow transition-all duration-500">
           <CardHeader className="text-center pb-6">
             <CardTitle className="text-2xl font-bold text-foreground">Welcome Back</CardTitle>
             <p className="text-muted-foreground">Sign in to your TalkAlign account</p>
@@ -200,7 +201,8 @@ export function LoginPage({ onLogin, onBack }) {
               {/* Submit Button */}
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                variant="premium"
+                className="w-full"
                 disabled={isLoading}
               >
                 {isLoading ? (
