@@ -5,13 +5,13 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Calendar, TrendingUp, Clock } from 'lucide-react';
 
 export function PatientCard({ patient, onViewDetails, onStartSession, showActions = true }) {
-  const getProgressColor = (score: number) => {
+  const getProgressColor = (score) => {
     if (score >= 80) return 'bg-success text-success-foreground';
     if (score >= 60) return 'bg-warning text-warning-foreground';
     return 'bg-primary text-primary-foreground';
   };
 
-  const getProgressText = (score: number) => {
+  const getProgressText = (score) => {
     if (score >= 80) return 'Excellent';
     if (score >= 60) return 'Good';
     return 'Improving';

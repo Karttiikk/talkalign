@@ -56,7 +56,7 @@ export function TherapyPlan({ onNavigate, selectedPatientId }) {
     });
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case 'active': return 'bg-primary text-primary-foreground';
       case 'completed': return 'bg-success text-success-foreground';

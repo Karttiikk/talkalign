@@ -27,13 +27,13 @@ export function ProgressTracker({ onNavigate }) {
   const previousScore = progressData[progressData.length - 2]?.score || 0;
   const improvement = latestScore - previousScore;
 
-  const getImprovementColor = (improvement: number) => {
+  const getImprovementColor = (improvement) => {
     if (improvement > 0) return 'text-success';
     if (improvement < 0) return 'text-destructive';
     return 'text-muted-foreground';
   };
 
-  const getImprovementIcon = (improvement: number) => {
+  const getImprovementIcon = (improvement) => {
     if (improvement > 0) return '↗️';
     if (improvement < 0) return '↘️';
     return '➡️';

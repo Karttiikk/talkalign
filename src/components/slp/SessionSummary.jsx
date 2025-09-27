@@ -26,7 +26,7 @@ export function SessionSummary({ onNavigate, selectedPatientId }) {
     });
   };
 
-  const getProgressColor = (score: number) => {
+  const getProgressColor = (score) => {
     if (score >= 80) return 'bg-success text-success-foreground';
     if (score >= 60) return 'bg-warning text-warning-foreground';
     return 'bg-primary text-primary-foreground';

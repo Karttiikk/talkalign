@@ -12,13 +12,13 @@ export function SessionReports({ onNavigate, selectedPatientId }) {
   const patient = mockPatients.find(p => p.id === selectedPatient);
   const patientSessions = mockSessions.filter(s => s.patientId === selectedPatient);
 
-  const getProgressEmoji = (score: number) => {
+  const getProgressEmoji = (score) => {
     if (score >= 80) return '🌟';
     if (score >= 60) return '🎯';
     return '📈';
   };
 
-  const getProgressMessage = (score: number) => {
+  const getProgressMessage = (score) => {
     if (score >= 80) return 'Excellent progress! Keep up the great work!';
     if (score >= 60) return 'Good improvement! Continue practicing at home.';
     return 'Making steady progress. Keep encouraging!';
