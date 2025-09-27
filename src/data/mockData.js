@@ -1,4 +1,4 @@
-export const patients = [
+export const mockPatients = [
   {
     id: "1",
     name: "Emma Johnson",
@@ -49,7 +49,7 @@ export const patients = [
   }
 ];
 
-export const sessions = [
+export const mockSessions = [
   {
     id: "1",
     patientId: "1",
@@ -91,13 +91,78 @@ export const sessions = [
   }
 ];
 
-export const progressData = [
-  { session: 1, score: 45, date: "2024-01-01" },
-  { session: 2, score: 52, date: "2024-01-03" },
-  { session: 3, score: 48, date: "2024-01-05" },
-  { session: 4, score: 61, date: "2024-01-08" },
-  { session: 5, score: 67, date: "2024-01-10" },
-  { session: 6, score: 73, date: "2024-01-12" },
-  { session: 7, score: 78, date: "2024-01-15" },
-  { session: 8, score: 82, date: "2024-01-17" },
+export const mockProgressData = {
+  '1': [
+    { session: 1, score: 45, date: "2024-01-01" },
+    { session: 2, score: 52, date: "2024-01-03" },
+    { session: 3, score: 48, date: "2024-01-05" },
+    { session: 4, score: 61, date: "2024-01-08" },
+    { session: 5, score: 67, date: "2024-01-10" },
+    { session: 6, score: 73, date: "2024-01-12" },
+    { session: 7, score: 78, date: "2024-01-15" },
+    { session: 8, score: 82, date: "2024-01-17" },
+  ],
+  '2': [
+    { session: 1, score: 35, date: "2024-01-01" },
+    { session: 2, score: 42, date: "2024-01-03" },
+    { session: 3, score: 38, date: "2024-01-05" },
+    { session: 4, score: 51, date: "2024-01-08" },
+    { session: 5, score: 57, date: "2024-01-10" },
+    { session: 6, score: 63, date: "2024-01-12" },
+    { session: 7, score: 68, date: "2024-01-15" },
+    { session: 8, score: 72, date: "2024-01-17" },
+  ],
+  '3': [
+    { session: 1, score: 65, date: "2024-01-01" },
+    { session: 2, score: 72, date: "2024-01-03" },
+    { session: 3, score: 68, date: "2024-01-05" },
+    { session: 4, score: 81, date: "2024-01-08" },
+    { session: 5, score: 87, date: "2024-01-10" },
+    { session: 6, score: 83, date: "2024-01-12" },
+    { session: 7, score: 88, date: "2024-01-15" },
+    { session: 8, score: 92, date: "2024-01-17" },
+  ]
+};
+
+export const mockTherapyGoals = [
+  {
+    id: "1",
+    patientId: "1",
+    title: "Improve consonant cluster production",
+    description: "Practice /st/, /sp/, /sk/ blends in various word positions",
+    targetDate: "2024-03-01",
+    status: "active",
+    progress: 75,
+    createdDate: "2024-01-01"
+  },
+  {
+    id: "2", 
+    patientId: "1",
+    title: "Increase speech intelligibility",
+    description: "Achieve 80% intelligibility in conversational speech",
+    targetDate: "2024-04-01",
+    status: "active", 
+    progress: 60,
+    createdDate: "2024-01-01"
+  },
+  {
+    id: "3",
+    patientId: "2", 
+    title: "Eliminate fronting patterns",
+    description: "Produce velars /k/ and /g/ correctly in all positions",
+    targetDate: "2024-02-15",
+    status: "active",
+    progress: 45,
+    createdDate: "2024-01-01"
+  },
+  {
+    id: "4",
+    patientId: "3",
+    title: "Implement fluency strategies", 
+    description: "Use easy onset and light contacts during conversations",
+    targetDate: "2024-03-15",
+    status: "active",
+    progress: 85,
+    createdDate: "2024-01-01"
+  }
 ];
