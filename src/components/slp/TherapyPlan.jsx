@@ -35,7 +35,7 @@ export function TherapyPlan({ onNavigate, selectedPatientId }) {
       return;
     }
 
-    const goal: TherapyGoal = {
+    const goal = {
       id: Date.now().toString(),
       patientId: selectedPatient,
       title: newGoal.title,
